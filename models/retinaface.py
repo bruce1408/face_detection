@@ -11,9 +11,6 @@ from models.net import ViTforObjectDetection as Vit
 from models.net import FPN as FPN
 from models.net import SSH as SSH
 
-# from net import MobileNetV1 as MobileNetV1
-# from net import FPN as FPN
-# from net import SSH as SSH
 
 
 
@@ -37,7 +34,6 @@ class BboxHead(nn.Module):
     def forward(self,x):
         out = self.conv1x1(x)
         out = out.permute(0,2,3,1).contiguous()
-
         return out.view(out.shape[0], -1, 4)
 
 class LandmarkHead(nn.Module):
@@ -149,8 +145,6 @@ class RetinaFace(nn.Module):
     
     
 if __name__ =="__main__":
-    from torchvision.transforms import Compose, ToTensor, Normalize, Resize
-
     cfg = {
         'name': 'mobilenet0.25',  # 可以选择 'mobilenet0.25' 或 'Resnet50'
         'pretrain': False,  # 设置为True如果有预训练权重
