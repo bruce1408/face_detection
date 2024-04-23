@@ -1,0 +1,35 @@
+.nfs*
+*.pyc
+.dumbo.json
+.DS_Store
+.*.swp
+*.pth
+*.jpg
+**/__pycache__/**
+.ipynb_checkpoints/
+datasets/data/
+experiment-*
+*.tmp
+*.pkl
+**/.mypy_cache/*
+.mypy_cache/*
+not_tracked_dir/
+output/
+.vscode
+# Directories
+checkpoints_resnet50_with_landmark/
+checkpoints_resnet50_without_landmark/
+
+# Specific files and directories
+data/__pycache__/
+layers/__pycache__/
+data/retinaface_gt_v1.1.zip
+
+# General patterns to ignore Python cache files globally
+*.py[cod]
+__pycache__/
+
+*.pth
+*.tar
+*.jpg
+*.mat
