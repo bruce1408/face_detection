@@ -55,7 +55,7 @@ cfg_vit = {
     "patch_size":16,
     "emb_size":768,
     "num_heads":4,
-    'epoch': 100,
+    'epoch': 300,
     'decay1': 70,
     'decay2': 90,
     'image_size': 640,
