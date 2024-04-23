@@ -24,7 +24,7 @@ We also provide a set of Face Detector for edge device in [here](https://github.
 | Mxnet | 88.72% | 86.97% | 79.19% |
 | Mxnet(original image scale) | 89.58% | 87.11% | 69.12% |
 
-<p align="center"><img src="./curve/Widerface.jpg" width="640"\></p>
+<p align="center"><img src="./curve/Widerface.png" width="640"\></p>
 
 ## FDDB Performance
 
