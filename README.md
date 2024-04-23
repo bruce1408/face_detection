@@ -20,6 +20,7 @@ We also provide a set of Face Detector for edge device in [here](https://github.
 | Pytorch (original image scale) | 90.70% | 88.16% | 73.82% |
 | Mxnet | 88.72% | 86.97% | 79.19% |
 | Mxnet(original image scale) | 89.58% | 87.11% | 69.12% |
+
 <p align="center"><img src="curve/Widerface.jpg" width="640"\></p>
 
 ## FDDB Performance.
@@ -27,6 +28,7 @@ We also provide a set of Face Detector for edge device in [here](https://github.
 |:-|:-:|
 | Mobilenet0.25 | 98.64% |
 | Resnet50 | 99.22% |
+
 <p align="center"><img src="curve/FDDB.png" width="640"\></p>
 
 ### Contents
