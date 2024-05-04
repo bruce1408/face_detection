@@ -22,7 +22,7 @@ class ClassHead(nn.Module):
 
     def forward(self,x):
         out = self.conv1x1(x)
-        out = out.permute(0,2,3,1).contiguous()
+        out = out.permute(0, 2, 3, 1).contiguous()
         
         return out.view(out.shape[0], -1, 2)
 
