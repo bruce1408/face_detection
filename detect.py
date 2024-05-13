@@ -61,7 +61,7 @@ def remove_prefix(state_dict, prefix):
 
 
 def load_model(model, pretrained_path, load_to_cpu):
-    print('Loading pretrained model from {}'.format(pretrained_path))
+    print_colored_box('Loading pretrained model from {}'.format(pretrained_path))
     if load_to_cpu:
         pretrained_dict = torch.load(pretrained_path, map_location=lambda storage, loc: storage)
     else:
@@ -91,7 +91,7 @@ if __name__ == '__main__':
     net = load_model(net, args.trained_model, args.cpu)
     net.eval()
     print('Finished loading model!')
-    print(net)
+    # print(net)
     cudnn.benchmark = False
     device = torch.device("cpu" if args.cpu else "cuda")
     net = net.to(device)
@@ -108,7 +108,7 @@ if __name__ == '__main__':
         img_paths = img_paths[:200]
         
     # 确保输出文件夹存在
-    inference_output_name = "./inference_output"
+    inference_output_name = "/mnt/share_disk/bruce_cui/Pytorch_Retinaface/inference_output"
     if not os.path.exists(inference_output_name):
         os.makedirs(inference_output_name)
     
@@ -203,7 +203,7 @@ if __name__ == '__main__':
                     cv2.circle(img_raw, (b[13], b[14]), 1, (255, 0, 0), 4)
             
             # save image                
-            prefix_name = str(i).zfill(6) + ".jpg"
+            prefix_name = str(i+1).zfill(6) + ".jpg"
             cv2.imwrite(os.path.join(inference_output_name, prefix_name), img_raw)
             
     print_colored_box("inference test pic is Done!")
