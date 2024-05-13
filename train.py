@@ -21,7 +21,9 @@ parser.add_argument('--network', default='vit', help='Backbone network mobile0.2
 parser.add_argument('--num_workers', default=4, type=int, help='Number of workers used in dataloading')
 parser.add_argument('--lr', '--learning-rate', default=1e-3, type=float, help='initial learning rate')
 parser.add_argument('--momentum', default=0.9, type=float, help='momentum')
-parser.add_argument('--resume_net', default="./weights/vit_epoch_40.pth", help='resume net for retraining')
+parser.add_argument('--resume_net',
+                    default="./weights/vit_epoch_100.pth",
+                    help='resume net for retraining')
 parser.add_argument('--resume_epoch', default=0, type=int, help='resume iter for retraining')
 parser.add_argument('--weight_decay', default=5e-4, type=float, help='Weight decay for SGD')
 parser.add_argument('--gamma', default=0.1, type=float, help='Gamma update for SGD')
@@ -139,7 +141,7 @@ def train():
         # without lanemark
         loss_l, loss_c, _ = criterion(out, priors, targets)
         loss = cfg['loc_weight'] * loss_l + loss_c
-        
+
         loss.backward()
         optimizer.step()
         load_t1 = time.time()
@@ -148,11 +150,11 @@ def train():
         # print('Epoch:{}/{} || Epochiter: {}/{} || Iter: {}/{} || Loc: {:.4f} Cla: {:.4f} Landm: {:.4f} || LR: {:.8f} || Batchtime: {:.4f} s || ETA: {}'
         #       .format(epoch, max_epoch, (iteration % epoch_size) + 1,
         #       epoch_size, iteration + 1, max_iter, loss_l.item(), loss_c.item(), loss_landm.item(), lr, batch_time, str(datetime.timedelta(seconds=eta))))
-        
+
         print('Epoch:{}/{} || Epochiter: {}/{} || Iter: {}/{} || Loc: {:.4f} Cla: {:.4f} || LR: {:.8f} || Batchtime: {:.4f} s || ETA: {}'
               .format(epoch, max_epoch, (iteration % epoch_size) + 1,
               epoch_size, iteration + 1, max_iter, loss_l.item(), loss_c.item(), lr, batch_time, str(datetime.timedelta(seconds=eta))))
-        
+
     torch.save(net.state_dict(), save_folder + cfg['name'] + '_Final.pth')
     # torch.save(net.state_dict(), save_folder + 'Final_Retinaface.pth')
 

@@ -49,7 +49,7 @@ cfg_vit = {
     'clip': False,
     'loc_weight': 2.0,
     'gpu_train': True,
-    'batch_size': 128,
+    'batch_size': 16,
     'ngpu': 4,
     "depth":4,
     "patch_size":16,
